@@ -8,7 +8,7 @@ program = "/bin/bash"
 [env]
 TERM = "xterm-256color"
 
-live_config_reload = true
+live_config_reload = "true"
 
 [window]
 dynamic_padding = true
@@ -24,14 +24,12 @@ thickness = 0.3
 history = 20000
 
 [font]
-normal = { family="JetBrains Mono", style = "Bold"}
-size = 25
+normal = { family="JetBrainsMono Nerd Font" , style = "Bold"}
+size = 12
 
 [selection]
 save_to_clipboard = true
 
-[cursor]
-style = { shape="Underline",blinking="On"}
 
 [mouse]
 hide_when_typing = true

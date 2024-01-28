@@ -19,9 +19,9 @@ set $right semicolon
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec alacritty
 
-# kill focused window
+#kill focused window
 bindsym $mod+q kill
 
 
