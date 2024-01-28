@@ -1,0 +1,38 @@
+#arch commands
+alias reload='. ~/.bashrc'
+alias update='sudo apt update'
+alias i='sudo apt install -y'
+alias tree-overview='tree -CDL 2'
+alias tree-1='tree -CL 2'
+alias lock='cmatrix -r'
+alias vim='nvim'
+alias pass-gen='python3 ~/.config/scripts/password-gen.py'
+alias weather='curl https://wttr.in'
+
+alias webserver="miniserve -p 8001"
+
+#tmux
+alias t='tmux new -f ~/.tmux.conf -s $1'
+
+#networking
+alias public='curl wtfismyip.com/text'
+
+#docker
+alias d='docker'
+alias dimls='docker image ls'
+alias dim='docker image'
+alias dc='docker container'
+alias dps='docker ps'
+alias dnt='docker network'
+
+#docker compose
+alias up='docker-compose up -d'
+alias down='docker-compose down'
+
+alias dot='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER'
+alias commit='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER commit -a'
+alias push='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER push'
+
+timestamp() {
+	date +%Y%m%d-%T
+}
