@@ -35,6 +35,7 @@ alias up='docker-compose up -d'
 alias down='docker-compose down'
 
 alias dot='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER'
+alias status='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER status'
 alias commit='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER commit -a'
 alias push='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER push'
 
