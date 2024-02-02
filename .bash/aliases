@@ -1,7 +1,9 @@
 #arch commands
 alias reload='. ~/.bashrc'
 alias update='sudo apt update'
+alias upgrade='sudo apt-get upgrade -y'
 alias i='sudo apt install -y'
+alias ls='ls --color=auto'
 alias tree-overview='tree -CDL 2'
 alias tree-1='tree -CL 2'
 alias lock='cmatrix -r'
@@ -10,6 +12,9 @@ alias pass-gen='python3 ~/.config/scripts/password-gen.py'
 alias weather='curl https://wttr.in'
 
 alias webserver="miniserve -p 8001"
+
+#blog
+alias blog='rsync -rv $HOME/projects/fr3d.dev/public/ pgs.sh:/dev'
 
 #tmux
 alias t='tmux new -f ~/.tmux.conf -s $1'

@@ -23,7 +23,6 @@ complete -C '/usr/local/bin/aws_completer' aws
 eval $(ssh-agent) >/dev/null 2>&1
 
 ssh-add ~/.ssh/fr3d >/dev/null 2>&1
-ssh-add ~/.ssh/homelab >/dev/null 2>&1
 ssh-add ~/.ssh/home >/dev/null 2>&1
 ssh-add ~/.ssh/vps >/dev/null 2>&1
 
