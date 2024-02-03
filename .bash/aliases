@@ -7,9 +7,10 @@ alias ls='ls --color=auto'
 alias tree-overview='tree -CDL 2'
 alias tree-1='tree -CL 2'
 alias lock='cmatrix -r'
-alias vim='nvim'
+alias v='nvim'
 alias pass-gen='python3 ~/.config/scripts/password-gen.py'
 alias weather='curl https://wttr.in'
+alias :q='exit'
 
 alias webserver="miniserve -p 8001"
 
@@ -31,14 +32,22 @@ alias dps='docker ps'
 alias dnt='docker network'
 
 #docker compose
-alias up='docker-compose up -d'
-alias down='docker-compose down'
+alias d-up='docker-compose up -d'
+alias d-down='docker-compose down'
 
 alias dot='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER'
 alias status='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER status'
-alias commit='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER commit -a'
+alias commit='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER commit -am'
 alias push='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER push'
 
 timestamp() {
 	date +%Y%m%d-%T
 }
+function up()
+{
+    for i in `seq 1 $1`;
+    do
+        cd ../
+    done;
+}
+
