@@ -1,8 +1,12 @@
 shopt -s histappend
 shopt -s checkwinsize
+HISTFILE="$HOME/.history"
 HISTSIZE=1000
 HISTFILESIZE=2000
 HISTCONTROL=ignoreboth
+HISTTIMEFORMAT='%Y-%m-%d %T - '
+
+
 
 force_color_prompt=yes
 
