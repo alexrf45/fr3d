@@ -32,6 +32,10 @@ alias dim='docker image'
 alias dc='docker container'
 alias dps='docker ps'
 alias dnt='docker network'
+alias dnuke="docker stop \$(docker ps -a -q); docker rm -f \$(docker ps -a -q); docker rmi -f \$(docker images -a -q); docker volume rm -f \$(docker volume ls -q)"
+
+#docker build
+alias build='docker build -t $1'
 
 #docker compose
 alias d-up='docker-compose up -d'
