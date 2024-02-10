@@ -18,6 +18,7 @@ alias webserver="miniserve -p 8001"
 
 #blog
 alias blog='rsync -rv $HOME/projects/fr3d.dev/public/ pgs.sh:/dev'
+alias p-blog='rsync $HOME/brain-child/fr3d/daily/* prose.sh:/'
 
 #tmux
 alias t='tmux new -f ~/.tmux.conf -s $1'

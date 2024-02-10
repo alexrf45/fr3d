@@ -29,6 +29,7 @@ eval $(ssh-agent) >/dev/null 2>&1
 ssh-add ~/.ssh/fr3d >/dev/null 2>&1
 ssh-add ~/.ssh/home >/dev/null 2>&1
 ssh-add ~/.ssh/vps >/dev/null 2>&1
+ssh-add ~/.ssh/jump >/dev/null 2>&1
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
