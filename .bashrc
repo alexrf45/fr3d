@@ -22,7 +22,7 @@ PS1='\[\e[38;5;195m\]\w\[\e[0m\] \[\e[38;5;107m\]${PS1_CMD1}\[\e[0m\] ${PS1_CMD2
 
 complete -C '/usr/local/bin/aws_completer' aws
 
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
 
 eval $(ssh-agent) >/dev/null 2>&1
 

@@ -1,6 +1,7 @@
 #terraform
 alias tf='terraform'
 alias tfi='terraform init'
+alias tfir='terraform init -backend-config="remote.tfbackend" -upgrade'
 alias tff='terraform fmt'
 alias tfv='terraform validate'
 alias tfp='terraform plan'

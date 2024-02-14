@@ -1,5 +1,5 @@
 #arch commands
-alias re='. ~/.bashrc'
+alias :r='. ~/.bashrc'
 alias update='sudo apt update'
 alias upgrade='sudo apt-get upgrade -y'
 alias i='sudo apt install -y'

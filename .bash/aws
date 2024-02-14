@@ -1,8 +1,8 @@
 #aws-vault
-alias awsv='aws-vault exec Administrator'
-alias awsv-no-session='aws-vault exec Administrator --no-session'
-alias awsv-acct-admin='aws-vault exec account-admin --duration=2h'
-alias awsv-acct-admin-no-session='aws-vault exec account-admin --no-session'
+alias awsv-s='aws-vault exec Administrator'
+alias awsv='aws-vault exec Administrator --no-session'
+alias acct-adm-s='aws-vault exec account-admin --duration=2h'
+alias acct-adm='aws-vault exec account-admin --no-session'
 
 
 #aws cli aliases
