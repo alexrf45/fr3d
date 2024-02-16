@@ -3,6 +3,10 @@
 alias kubectl='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest @'
 
 alias k='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest'
+
+
+alias k9s='docker run --rm -it -v ~/.kube/config:/root/.kube/config quay.io/derailed/k9s'
+
 alias kd='kubectl delete'
 alias kg='kubectl get'
 alias kl='kubectl logs'
