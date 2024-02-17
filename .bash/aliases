@@ -8,7 +8,7 @@ alias home='cd ~'
 alias tree-overview='tree -CDL 2'
 alias tree-1='tree -CL 2'
 alias lock='cmatrix -r'
-alias v='nvim'
+alias vim='nvim'
 alias c='clear'
 alias pass-gen='python3 ~/.config/scripts/password-gen.py'
 alias weather='curl https://wttr.in'
@@ -19,6 +19,9 @@ alias webserver="miniserve -p 8001"
 #blog
 alias blog='rsync -rv $HOME/projects/fr3d.dev/public/ pgs.sh:/dev'
 alias p-blog='rsync $HOME/brain-child/fr3d/daily/* prose.sh:/'
+
+#notes
+alias notes='docker run -d --name memos -p 5230:5230 -v ~/.memos/:/var/opt/memos neosmemo/memos:stable'
 
 #tmux
 alias t='tmux new -f ~/.tmux.conf -s $1'

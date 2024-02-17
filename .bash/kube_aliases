@@ -7,50 +7,50 @@ alias k='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:la
 
 alias k9s='docker run --rm -it -v ~/.kube/config:/root/.kube/config quay.io/derailed/k9s'
 
-alias kd='kubectl delete'
-alias kg='kubectl get'
-alias kl='kubectl logs'
-alias klf='kubectl logs -f'
+alias kd='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest delete'
+alias kg='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get'
+alias kl='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest logs'
+alias klf='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest logs -f'
 # certificatesigningrequests
-alias kgcsr='kubectl get certificatesigningrequests'
+alias kgcsr='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get certificatesigningrequests'
 
 # clusterrolebindings
-alias kgcrb='kubectl get clusterrolebindings'
+alias kgcrb='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get clusterrolebindings'
 
 # clusterroles
-alias kgcr='kubectl get clusterroles'
+alias kgcr='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get clusterroles'
 
 # componentstatuses
-alias kgcs='kubectl get componentstatus'
+alias kgcs='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get componentstatus'
 
 # from file
-alias kaf='kubectl apply -f'
-alias kcf='kubectl create -f'
-alias kdf='kubectl delete -f'
-alias kef='kubectl edit -f'
-alias kdsf='kubectl describe -f'
-alias kgf='kubectl get -f'
+alias kaf='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest apply -f'
+alias kcf='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest create -f'
+alias kdf='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest delete -f'
+alias kef='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest edit -f'
+alias kdsf='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe -f'
+alias kgf='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get -f'
 
-alias kdsns='kubectl describe namespaces'
+alias kdsns='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe namespaces'
 
 # Nodes
-alias kdsn='kubectl describe nodes'
-alias ken='kubectl edit nodes'
-alias kgn='kubectl get nodes'
-alias kgny='kubectl get nodes -o yaml'
-alias ktn='kubectl top nodes'
+alias kdsn='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe nodes'
+alias ken='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest edit nodes'
+alias kgn='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get nodes'
+alias kgny='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get nodes -o yaml'
+alias ktn='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest top nodes'
 
 #pods
-alias kdsp='kubectl describe pods'
-alias kgp='kubectl get pods'
+alias kdsp='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe pods'
+alias kgp='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get pods'
 #services
-alias kgsv='kubectl get services'
-alias kdsv='kubectl describe services'
+alias kgsv='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get services'
+alias kdsv='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe services'
 
 # roles
-alias kgr='kubectl get roles'
+alias kgr='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get roles'
 # secrets
-alias kdssc='kubectl describe secrets'
+alias kdssc='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe secrets'
 # serviceaccounts
-alias kgsa='kubectl get serviceaccounts'
+alias kgsa='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get serviceaccounts'
 
