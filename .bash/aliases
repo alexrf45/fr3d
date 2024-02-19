@@ -1,11 +1,14 @@
-#arch commands
+#reload shell
 alias :r='. ~/.bashrc'
-alias update='sudo apt update'
+
+#apt
+alias :up='sudo apt update'
 alias upgrade='sudo apt-get upgrade -y'
 alias i='sudo apt install -y'
+
+#everyday
 alias ls='ls --color=auto'
 alias home='cd ~'
-alias tree-overview='tree -CDL 2'
 alias tree-1='tree -CL 2'
 alias lock='cmatrix -r'
 alias vim='nvim'
@@ -13,21 +16,48 @@ alias c='clear'
 alias pass-gen='python3 ~/.config/scripts/password-gen.py'
 alias weather='curl https://wttr.in'
 alias :q='exit'
-
 alias webserver="miniserve -p 8001"
 
 #blog
 alias blog='rsync -rv $HOME/projects/fr3d.dev/public/ pgs.sh:/dev'
 alias p-blog='rsync $HOME/brain-child/fr3d/daily/* prose.sh:/'
 
-#notes
-alias notes='docker run -d --name memos -p 5230:5230 -v ~/.memos/:/var/opt/memos neosmemo/memos:stable'
+#memos
+alias memos='docker run -d --name memos -p 5230:5230 -v ~/.memos/:/var/opt/memos neosmemo/memos:stable'
 
 #tmux
 alias t='tmux new -f ~/.tmux.conf -s $1'
 
 #networking
 alias public='curl wtfismyip.com/text'
+
+#git
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gca='git commit -a'
+alias gcb='git checkout -b'
+alias gc='git clone'
+alias gcl='git clone --recurse-modules'
+alias clean='git reset --hard && git clean -dfxx'
+alias checkout='git checkout'
+alias gd='git diff'
+alias gf='git fetch'
+alias gfo='git fetch origin'
+alias gpl='git pull'
+alias gm='git merge'
+alias gp='git push'
+alias gs='git status'
+alias gt='git tag'
+alias gptf='git push --follow-tags'
+
+
+alias glog='git log --date-order --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
+alias gl='glog --graph'
+alias gla='gl --all'
+
 
 #docker
 alias d='docker'
@@ -37,6 +67,10 @@ alias dc='docker container'
 alias dps='docker ps'
 alias dnt='docker network'
 alias dnuke="docker stop \$(docker ps -a -q); docker rm -f \$(docker ps -a -q); docker rmi -f \$(docker images -a -q); docker volume rm -f \$(docker volume ls -q)"
+
+#lazy-docker
+
+alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /yourpath:/.config/jesseduffield/lazydocker lazyteam/lazydocker'
 
 #docker build
 alias build='docker build -t $1'
@@ -50,14 +84,59 @@ alias status='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$US
 alias commit='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER commit -am'
 alias push='/usr/bin/git --git-dir=/home/$USER/.cfg/.git --work-tree=/home/$USER push'
 
-timestamp() {
-	date +%Y%m%d-%T
-}
-function up()
-{
-    for i in `seq 1 $1`;
-    do
-        cd ../
-    done;
-}
+#python3
 
+alias py-virt='python3 -m venv .venv && source .venv/bin/activate'
+alias freeze='pip freeze > requirements.txt'
+alias py-install='pip install -r requirements.txt'
+alias py-list='pipx list | grep package'
+
+#aws-vault
+alias awsv-s='aws-vault exec Administrator'
+alias awsv='aws-vault exec Administrator --no-session'
+alias acct-adm-s='aws-vault exec account-admin --duration=2h'
+alias acct-adm='aws-vault exec account-admin --no-session'
+
+
+#aws cli aliases
+alias ec2-check='aws ec2 describe-instances --query "Reservations[*].Instances[*].{PublicIP:PublicIpAddress,PrivateIP:PrivateIpAddress,Name:Tags[?Key=='Name']|[0].Value,Type:InstanceType,Status:State.Name,VpcId:VpcId,Id:InstanceId}" --filters "Name=instance-state-name,Values=running" --output table'
+alias s3-list="aws s3api list-buckets | jq -r '.Buckets[].Name'"
+alias vpc-check='aws ec2 --output text --query "Vpcs[*].{VpcId:VpcId,Name:Tags[?Key=='Environment'].Value|[0],CidrBlock:CidrBlock}" describe-vpcs'
+alias s3-delete='aws s3api delete-bucket --bucket ${BUCKET}'
+alias iam-access-id-admin='aws iam get-user --user-name administrator | jq -r ".User | .UserId"'
+#cloud-nuke aws
+alias aws-nuke='cloud-nuke aws --exclude-resource-type s3 --exclude-resource-type iam --exclude-resource-type secretsmanager --exclude-resource-type dynamodb'
+alias aws-nuke-view-us-east-1='cloud-nuke inspect-aws --region us-east-1'
+
+alias aws-services-list='~/.config/scripts/./services.sh'
+alias aws-services-cost='~/.config/scripts/service-cost.sh'
+alias aws-current-cost='~/.config/scripts/awscurrentcost.sh'
+alias aws-cost-overall='~/.config/scripts/awscost.sh'
+alias s3-backend-delete='~/.config/scripts/./s3-backend-delete.sh'
+
+
+alias s3-create='python3 ~/.config/scripts/s3.py'
+
+#terraform
+alias tf='terraform'
+alias tfi='terraform init'
+alias tfir='terraform init -backend-config="remote.tfbackend" -upgrade'
+alias tlint='terraform fmt && terraform validate'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfs='terraform state'
+alias tfsls='terraform state list'
+alias tfo='terraform output'
+alias tfd='terraform destroy'
+alias cost='infracost breakdown --path=.'
+
+#kubernetes
+#
+
+alias k='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest'
+alias k9s='docker run --rm -it -v ~/.kube/config:/root/.kube/config quay.io/derailed/k9s'
+alias kd='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest delete'
+alias kg='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get'
+alias kl='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest logs'
+alias kgp='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get pods'
+alias ksecrets='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe secrets'

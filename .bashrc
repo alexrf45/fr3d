@@ -14,15 +14,19 @@ for file in $HOME/.bash/*; do
 	source "$file"
 done
 
+tmux_default() {
+	if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+		exec tmuxp load ~/.config/tmuxp/dev.yaml
+	fi
+}
+
+tmux_default
+
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
 PROMPT_COMMAND='PS1_CMD1=$(git branch 2>/dev/null | grep '"'"'*'"'"' | colrm 1 2); PS1_CMD2=$(echo $AWS_VAULT)'
-PS1='\[\e[38;5;195m\]\w\[\e[0m\] \[\e[38;5;107m\]${PS1_CMD1}\[\e[0m\] ${PS1_CMD2} \n\$ '
-
-complete -C '/usr/local/bin/aws_completer' aws
-
-#eval "$(starship init bash)"
+PS1='\[\e[97;5;195m\]\w\[\e[0m\] \[\e[38;5;150m\]${PS1_CMD1}\[\e[0m\] ${PS1_CMD2} \n\$ '
 
 eval $(ssh-agent) >/dev/null 2>&1
 
@@ -32,6 +36,4 @@ ssh-add ~/.ssh/vps >/dev/null 2>&1
 ssh-add ~/.ssh/jump >/dev/null 2>&1
 ssh-add ~/.ssh/lab >/dev/null 2>&1
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+complete -C '/usr/local/bin/aws_completer' aws
