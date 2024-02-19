@@ -134,9 +134,10 @@ alias cost='infracost breakdown --path=.'
 #
 
 alias k='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest'
-alias k9s='docker run --rm -it -v ~/.kube/config:/root/.kube/config quay.io/derailed/k9s'
+alias k9s='docker run --rm -it -v $HOME/.config/k9s/skins:/root/.config/k9s/skins -v ~/.kube/config:/root/.kube/config quay.io/derailed/k9s'
 alias kd='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest delete'
 alias kg='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get'
+alias kgn='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get nodes'
 alias kl='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest logs'
 alias kgp='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get pods'
 alias ksecrets='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe secrets'
