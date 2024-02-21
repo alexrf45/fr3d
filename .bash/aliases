@@ -18,6 +18,10 @@ alias weather='curl https://wttr.in'
 alias :q='exit'
 alias webserver="miniserve -p 8001"
 
+#s3-notes-backup
+alias obsidian-backup-s3='aws s3 sync ~/brain-child/fr3d/. s3://brain-child-backup'
+
+
 #blog
 alias blog='rsync -rv $HOME/projects/fr3d.dev/public/ pgs.sh:/dev'
 alias p-blog='rsync $HOME/brain-child/fr3d/daily/* prose.sh:/'
@@ -141,3 +145,7 @@ alias kgn='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:
 alias kl='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest logs'
 alias kgp='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest get pods'
 alias ksecrets='docker run --rm --name kubectl -v $HOME/.kube:/.kube bitnami/kubectl:latest describe secrets'
+
+#argocli
+
+alias argo='docker run -it --rm --name argo-cd -v $HOME/.kube:/.kube -v $HOME/.argocd/config:/.argocd/config bitnami/argo-cd:latest'
